@@ -6,6 +6,7 @@ import axios from "axios";
 const Home = () => {
   const navigate = useNavigate();
   axios.defaults.withCredentials = true;
+
   const handleLogout = () => {
     axios
       .get("http://localhost:3000/auth/logout")
@@ -15,16 +16,16 @@ const Home = () => {
         }
       })
       .catch((err) => {
-        console.log(err);
+        console.error(err);
       });
   };
+
   return (
     <div>
       <h2>Welcome to my Application</h2>
       <p>This is the homepage content.</p>
       <button className="home">
-        {" "}
-        <Link to={"/dashboard"}>DashBoard</Link>{" "}
+        <Link to={"/dashboard"}>DashBoard</Link>
       </button>
       <br />
       <br />
