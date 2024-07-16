@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "../App.css";
+import "../HomePage.css";
 import axios from "axios";
 
 const Home = () => {
@@ -21,17 +21,24 @@ const Home = () => {
   };
 
   return (
-    <div>
-      <h2>Welcome to my Application</h2>
-      <p>This is the homepage content.</p>
-      <button className="home">
-        <Link to={"/dashboard"}>DashBoard</Link>
-      </button>
+    <div className="container-top">
+      <h2 className="gradient-text">Welcome to HomePage</h2>
+
+      <div className="container">
+        <p>Visit The DashBoard Page :</p>
+        <Link to={"/dashboard"} className="link">
+          <button className="home-button">DashBoard</button>
+        </Link>
+      </div>
+
       <br />
       <br />
-      <button className="home" onClick={handleLogout}>
-        Logout
-      </button>
+      <div className="container">
+        <p>Want To LogOut Of This Application :</p>
+        <button className="home-button" onClick={handleLogout}>
+          Logout
+        </button>
+      </div>
     </div>
   );
 };

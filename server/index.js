@@ -5,6 +5,7 @@ import cors from "cors";
 dotenv.config();
 import { UserRouter } from "./routes/user.js";
 import cookieParser from "cookie-parser";
+import { PostRoute } from "./routes/postRoutes.js";
 
 const app = express();
 
@@ -17,11 +18,12 @@ app.use(
 );
 app.use(cookieParser());
 app.use("/auth", UserRouter);
+app.use("/api", PostRoute);
 
 mongoose.connect(
   "mongodb+srv://mharmilap:f4DADFhNCMrS0n2L@cluster0.m1hiamw.mongodb.net/authenticate"
 );
 
 app.listen(process.env.PORT, () => {
-  console.log("server is running");
+  console.log("Server is running");
 });
